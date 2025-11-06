@@ -228,7 +228,3 @@ resource "aws_api_gateway_method_settings" "restapi_proxy" {
     throttling_rate_limit  = 10000
   }
 }
-
-output "api_url" {
-  value = (local.need_custom_domain) ? "https://${aws_api_gateway_domain_name.restapi_proxy[0].domain_name}/${var.api_version}" : aws_api_gateway_stage.restapi_proxy.invoke_url
-}

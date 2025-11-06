@@ -29,7 +29,7 @@ variable "domain_name" {
 }
 
 variable "hosted_zone_id" {
-  description = "Hosted zone ID for the Route53 DNS"
+  description = "Hosted zone ID for the Route53 DNS.  This is required if domain_name is specified."
   type        = string
   default     = null
 }
@@ -49,7 +49,7 @@ variable "tags" {
 }
 
 variable "need_logging" {
-  description = "Enable or disable logging"
+  description = "API Logging will be ENABLED if true"
   type = bool
   default = false
 }
