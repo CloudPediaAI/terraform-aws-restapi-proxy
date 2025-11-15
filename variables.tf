@@ -53,3 +53,13 @@ variable "need_logging" {
   type = bool
   default = false
 }
+
+variable "cloudwatch_role_arn" {
+  description = "ARN of the CloudWatch role for API Gateway logging"
+  type = string
+  default = null
+  validation {
+    condition     = !(var.need_logging) || (var.need_logging && var.cloudwatch_role_arn != null)
+    error_message = "cloudwatch_role_arn must be provided if need_logging is set to true."
+  }
+}

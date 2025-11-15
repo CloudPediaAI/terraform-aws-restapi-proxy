@@ -7,4 +7,9 @@ This terraform module will create a REST API in AWS API Gateway as Proxy for you
 - [Documentation](https://cloudpedia.ai/terraform-module/aws-restapi-proxy/)
 - [Terraform module](https://registry.terraform.io/modules/cloudpediaai/restapi-proxy/aws/latest)
 - [GitHub Repo](https://github.com/CloudPediaAI/terraform-aws-restapi-proxy)
+- [Changelog](./CHANGELOG.md)
 
+# Release Notes
+
+## Version 1.1.0 
+Refer [ChangeLog](CHANGELOG.md)
