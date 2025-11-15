@@ -12,4 +12,4 @@ This terraform module will create a REST API in AWS API Gateway as Proxy for you
 # Release Notes
 
 ## Version 1.1.0 
-Refer [ChangeLog](CHANGELOG.md)
+Refer [ChangeLog](CHANGELOG.md#110---2025-11-14)
