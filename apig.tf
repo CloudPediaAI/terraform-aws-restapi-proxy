@@ -217,7 +217,7 @@ resource "aws_api_gateway_method_settings" "restapi_proxy" {
   stage_name  = aws_api_gateway_stage.restapi_proxy.stage_name
   method_path = "*/*"
 
-  depends_on = [aws_api_gateway_account.restapi_proxy_logging]
+  depends_on = [aws_api_gateway_account.restapi_proxy_logging[0]]
 
   settings {
     metrics_enabled    = true

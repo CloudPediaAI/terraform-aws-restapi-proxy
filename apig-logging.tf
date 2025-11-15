@@ -10,6 +10,8 @@ resource "aws_cloudwatch_log_group" "restapi_proxy_log_group" {
 
 # Create IAM role for API Gateway CloudWatch logging
 resource "aws_iam_role" "restapi_proxy_cloudwatch" {
+  count = var.need_logging ? 1 : 0
+
   name = "${var.api_name}-api-cloudwatch-role"
 
   assume_role_policy = jsonencode({
@@ -32,8 +34,10 @@ resource "aws_iam_role" "restapi_proxy_cloudwatch" {
 
 # Attach CloudWatch logging policy to the role
 resource "aws_iam_role_policy" "restapi_proxy_cloudwatch" {
+  count = var.need_logging ? 1 : 0
+
   name = "${var.api_name}-api-cloudwatch-policy"
-  role = aws_iam_role.restapi_proxy_cloudwatch.id
+  role = aws_iam_role.restapi_proxy_cloudwatch[0].id
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -62,7 +66,7 @@ resource "aws_iam_role_policy" "restapi_proxy_cloudwatch" {
 resource "aws_api_gateway_account" "restapi_proxy_logging" {
   count = var.need_logging ? 1 : 0
 
-  cloudwatch_role_arn = aws_iam_role.restapi_proxy_cloudwatch.arn
+  cloudwatch_role_arn = aws_iam_role.restapi_proxy_cloudwatch[0].arn
 
   depends_on = [aws_iam_role.restapi_proxy_cloudwatch]
 }
