@@ -63,3 +63,9 @@ variable "cloudwatch_role_arn" {
     error_message = "cloudwatch_role_arn must be provided if need_logging is set to true."
   }
 }
+
+variable "binary_media_types" {
+  description = "Binary media types for the API Gateway"
+  type        = list(string)
+  default     = []
+}

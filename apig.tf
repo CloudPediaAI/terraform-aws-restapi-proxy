@@ -6,6 +6,8 @@ resource "aws_api_gateway_rest_api" "restapi_proxy" {
     types = ["EDGE"]
   }
 
+  binary_media_types = var.binary_media_types
+
   tags = var.tags
 }
 
